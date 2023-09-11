@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Habit Detail</title>
+  <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+  <h1>Habit Detail</h1>
+
+  <h2>Habit: <%= habit.name %></h2>
+
+  <p>Longest Streak: <%= habit.longestStreak %></p>
+  <p>Days Completed: <%= habit.daysCompleted %></p>
+
+  <!-- Form to track habit for today -->
+  <form action="/habits/<%= habit._id %>" method="POST">
+    <label for="status">Status for Today:</label>
+    <select name="status">
+      <option value="Done">Done</option>
+      <option value="Not done">Not done</option>
+      <option value="None">None</option>
+    </select>
+    <button type="submit">Track</button>
+  </form>
+
+  <!-- Other habit details and statistics -->
+
+</body>
+</html>

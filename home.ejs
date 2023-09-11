@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Habit Tracker</title>
+  <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+  <h1>Habit Tracker</h1>
+
+  <!-- Form to create a new habit -->
+  <form action="/habits" method="POST">
+    <label for="habitName">Add New Habit:</label>
+    <input type="text" id="habitName" name="name" required>
+    <button type="submit">Add</button>
+  </form>
+
+  <!-- List of habits -->
+  <ul>
+    <% habits.forEach(habit => { %>
+      <li>
+        <%= habit.name %>
+        <form action="/habits/<%= habit._id %>" method="POST">
+          <select name="status">
+            <option value="Done">Done</option>
+            <option value="Not done">Not done</option>
+            <option value="None">None</option>
+          </select>
+          <button type="submit">Track</button>
+        </form>
+      </li>
+    <% }); %>
+  </ul>
+</body>
+</html>
